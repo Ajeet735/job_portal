@@ -18,7 +18,7 @@ const Register = () => {
   const [password, setPassword] = useState("");
   const [role, setRole] = useState("");
 
-  const { isAuthorized, setIsAuthorized, user, setUser } = useContext(Context);
+  const { isAuthorized, setIsAuthorized,} = useContext(Context);
 
 //The handleRegister function prevents default form submission and sends user data to the backend.
   const handleRegister = async (e) => {
@@ -58,7 +58,7 @@ const Register = () => {
       <section className="authPage">
         <div className="container">
           <div className="header">
-            <img src="/careerconnect-black.png" alt="logo" />
+            <img src="/careerconnect-Black.png" alt="logo" />
             <h3>Create a new account</h3>
           </div>
     {/*creating the register form*/}
