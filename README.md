@@ -60,7 +60,7 @@ Installation
 
 Clone the repository:
 
-git clone https://github.com/Ajeetchirag/job-portal.git
+https://github.com/Ajeet735/job_portal.git
 
 Navigate to the project directory:
 
