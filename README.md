@@ -120,7 +120,5 @@ If you find this project helpful, please give a star ⭐ to the repository.
 Contact
 
 
-Ajeet Chirag - [GitHub](https://github.com/Ajeetchirag/job-portal.git)
-
-Project Link: [https://github.com/Ajeetchirag/job-portal.git](https://github.com/Ajeetchirag/job-portal.git)
-
+Ajeet Chirag - 
+Project Link: 

@@ -16,15 +16,16 @@
     text-align: center;
     margin: 5px;
   }
-  .card button:hover {
-    color:#EEF5F3;
-    background:#3CC6A5;
-    transition: all 0.3s;
+  /* .card button:hover {
+    color: #EEF5F3;
+    background: #3CC6A5;
+    box-shadow: 0px 0px 6px 2px #8b8b8b;
+    transition: all 0.2s ease-in-out;
     cursor: pointer;
     font-weight: 400;
     border: 1px solid #3CC6A5;
-    
-  }
+    transform: scale(1.05);
+  } */
   
   .icon {
     font-size: 40px;
@@ -97,32 +98,85 @@
     }
   }
 
+  .details {
+   text-align: center;
+    padding: 20px;
+    border-radius: 8px;
+  }
+  .details .container {
+    min-width: 1500px;
+    max-width: 1500px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+  .details .container .banner {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 20px 0;
+  }
+  @media (max-width: 1520px) {
+    .details .container {
+      min-width: 100%;
+      padding: 0 20px;
+    }
+  }
+  @media (max-width: 1100px) {
+    .details .container .banner {
+      flex-direction: column;
+      gap: 30px;
+      align-items: center;
+    }
+    .details .container .banner .card {
+      width: 420px;
+    }
+  }
+  @media (max-width: 470px) {
+    .details .container .banner .card {
+      width: 100%;
+    }
+  }
+
+
 
   .card {
-    gap: 20px;
-    width: 200px;
-  } 
+    background: #EEF5F3;
+    padding: 20px;
+    border-radius:10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 300px;
+    margin: 10px;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .card:hover {
+    box-shadow: 0px 0px 6px 2px #8b8b8b;
+    transform: scale(1.05);
+    cursor: pointer;
+  }
+  
   .card .icon {
     font-size: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 10px;
     color: #3CC6A5;
+    margin-bottom: 10px;
   }
-  .details .card .content p:first-child {
+  
+  .card .content p:first-child {
     font-weight: bold;
+    font-size: 22px;
   }
-  .details .card .content p:nth-child(2) {
-    font-size: 20px;
+  
+  .card .content p:nth-child(2) {
+    font-size: 16px;
     color: gray;
     margin-top: 5px;
-  }
-  .details .card:hover {
-    transition: all 0.3s;
-    box-shadow: 2px 10px 10px -1px rgba(0, 0, 0, 0.17);
-    -webkit-box-shadow: 2px 10px 10px -1px rgba(0, 0, 0, 0.17);
-    -moz-box-shadow: 2px 10px 10px -1px rgba(0, 0, 0, 0.17);
   }
   @media (max-width: 950px) {
     .heroSection .details {

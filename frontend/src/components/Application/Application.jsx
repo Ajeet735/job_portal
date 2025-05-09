@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useContext, useState } from "react";
+import { useContext, useState } from "react";
 import toast from "react-hot-toast";
 import { useNavigate, useParams } from "react-router-dom";
 import { Context } from "../../main";
@@ -25,8 +25,13 @@ const Application = () => {
 
   //Application Handler Function
   const { id } = useParams();
+
   const handleApplication = async (e) => {
     e.preventDefault();
+    if (!resume) {
+      toast.error("Please upload your resume.");
+      return; // Stop further execution if no resume is selected
+    }
   //Create FormData Object FormData is used to send both text and file data in a multipart/form-data format.
   //This is necessary for handling file uploads in an API request.
     const formData = new FormData(); //This is necessary for handling file uploads in an API request.

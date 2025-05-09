@@ -1,9 +1,10 @@
-import React, { useContext, useEffect, useState } from "react";
+import  { useContext, useEffect, useState } from "react";
 import { Context } from "../../main";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import ResumeModal from "./ResumeModal";
+import PropTypes from "prop-types"; 
 import "../../App.css";
 import './MyApplications.css';
 
@@ -36,7 +37,7 @@ const MyApplications = () => {
           });
       }
     } catch (error) {
-      toast.error(error.response.data.message);
+      toast.error(error.response?.data?.message || "Something went wrong");
     }
   }, [isAuthorized]);
 
@@ -57,7 +58,7 @@ const MyApplications = () => {
           );
         });
     } catch (error) {
-      toast.error(error.response.data.message);
+      toast.error(error.response?.data?.message || "Delete failed");
     }
   };
 
@@ -74,49 +75,33 @@ const MyApplications = () => {
     <section className="my_applications page">
       {user && user.role === "Job Seeker" ? (
         <div className="container">
-          <center>
-          <h3>My Applications</h3>
-          </center>
+          <center><h3>My Applications</h3></center>
           {applications.length <= 0 ? (
-            <>
-              {" "}
-              <center>
-              <h4>No Applications Found</h4></center>{" "}
-            </>
+            <center><h4>No Applications Found</h4></center>
           ) : (
-            applications.map((element) => {
-              return (
-                <JobSeekerCard
-                  element={element}
-                  key={element._id}
-                  deleteApplication={deleteApplication}
-                  openModal={openModal}
-                />
-              );
-            })
+            applications.map((element) => (
+              <JobSeekerCard
+                element={element}
+                key={element._id}
+                deleteApplication={deleteApplication}
+                openModal={openModal}
+              />
+            ))
           )}
         </div>
       ) : (
         <div className="container">
-          <center>
-          <h3>Applications From Job Seekers</h3>
-          </center>
+          <center><h3>Applications From Job Seekers</h3></center>
           {applications.length <= 0 ? (
-            <>
-            <center>
-              <h4>No Applications Found</h4>
-              </center>
-            </>
+            <center><h4>No Applications Found</h4></center>
           ) : (
-            applications.map((element) => {
-              return (
-                <EmployerCard
-                  element={element}
-                  key={element._id}
-                  openModal={openModal}
-                />
-              );
-            })
+            applications.map((element) => (
+              <EmployerCard
+                element={element}
+                key={element._id}
+                openModal={openModal}
+              />
+            ))
           )}
         </div>
       )}
@@ -129,73 +114,83 @@ const MyApplications = () => {
 
 export default MyApplications;
 
+// ✅ JobSeekerCard Component
 const JobSeekerCard = ({ element, deleteApplication, openModal }) => {
   return (
-    <>
-      <div className="job_seeker_card">
-        <div className="detail">
-          <p>
-            <span>Name:</span> {element.name}
-          </p>
-          <p>
-            <span>Email:</span> {element.email}
-          </p>
-          <p>
-            <span>Phone:</span> {element.phone}
-          </p>
-          <p>
-            <span>Address:</span> {element.address}
-          </p>
-          <p>
-            <span>CoverLetter:</span> {element.coverLetter}
-          </p>
-        </div>
-        <div className="resume">
-          <img
-            src={element.resume.url}
-            alt="resume"
-            onClick={() => openModal(element.resume.url)}
-          />
-        </div>
-        <div className="btn_area">
-          <button onClick={() => deleteApplication(element._id)}>
-            Delete Application
-          </button>
-        </div>
+    <div className="job_seeker_card">
+      <div className="detail">
+        <p><span>Name:</span> {element.name}</p>
+        <p><span>Email:</span> {element.email}</p>
+        <p><span>Phone:</span> {element.phone}</p>
+        <p><span>Address:</span> {element.address}</p>
+        <p><span>CoverLetter:</span> {element.coverLetter}</p>
       </div>
-    </>
+      <div className="resume">
+        <img
+          src={element.resume.url}
+          alt="resume"
+          onClick={() => openModal(element.resume.url)}
+        />
+      </div>
+      <div className="btn_area">
+        <button onClick={() => deleteApplication(element._id)}>
+          Delete Application
+        </button>
+      </div>
+    </div>
   );
 };
 
+// ✅ EmployerCard Component
 const EmployerCard = ({ element, openModal }) => {
   return (
-    <>
-      <div className="job_seeker_card">
-        <div className="detail">
-          <p>
-            <span>Name:</span> {element.name}
-          </p>
-          <p>
-            <span>Email:</span> {element.email}
-          </p>
-          <p>
-            <span>Phone:</span> {element.phone}
-          </p>
-          <p>
-            <span>Address:</span> {element.address}
-          </p>
-          <p>
-            <span>CoverLetter:</span> {element.coverLetter}
-          </p>
-        </div>
-        <div className="resume">
-          <img
-            src={element.resume.url}
-            alt="resume"
-            onClick={() => openModal(element.resume.url)}
-          />
-        </div>
+    <div className="job_seeker_card">
+      <div className="detail">
+        <p><span>Name:</span> {element.name}</p>
+        <p><span>Email:</span> {element.email}</p>
+        <p><span>Phone:</span> {element.phone}</p>
+        <p><span>Address:</span> {element.address}</p>
+        <p><span>CoverLetter:</span> {element.coverLetter}</p>
       </div>
-    </>
+      <div className="resume">
+        <img
+          src={element.resume.url}
+          alt="resume"
+          onClick={() => openModal(element.resume.url)}
+        />
+      </div>
+    </div>
   );
+};
+
+// ✅ PropTypes validation
+JobSeekerCard.propTypes = {
+  element: PropTypes.shape({
+    _id: PropTypes.string.isRequired,
+    name: PropTypes.string,
+    email: PropTypes.string,
+    phone: PropTypes.string,
+    address: PropTypes.string,
+    coverLetter: PropTypes.string,
+    resume: PropTypes.shape({
+      url: PropTypes.string,
+    }),
+  }).isRequired,
+  deleteApplication: PropTypes.func.isRequired,
+  openModal: PropTypes.func.isRequired,
+};
+
+EmployerCard.propTypes = {
+  element: PropTypes.shape({
+    _id: PropTypes.string.isRequired,
+    name: PropTypes.string,
+    email: PropTypes.string,
+    phone: PropTypes.string,
+    address: PropTypes.string,
+    coverLetter: PropTypes.string,
+    resume: PropTypes.shape({
+      url: PropTypes.string,
+    }),
+  }).isRequired,
+  openModal: PropTypes.func.isRequired,
 };
