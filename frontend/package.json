@@ -4,13 +4,12 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview",
-    "build:css": "tailwindcss -i ./src/input.css -o ./dist/output.css --watch",
-    "start": "react-scripts start"
-  },
+  "dev": "vite",
+  "build": "vite build",
+  "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+  "preview": "vite preview",
+  "build:css": "tailwindcss -i ./src/input.css -o ./dist/output.css --watch"
+},
   "dependencies": {
     "@reduxjs/toolkit": "^2.5.1",
     "axios": "^1.6.5",
@@ -21,7 +20,6 @@
     "react-icons": "^4.12.0",
     "react-redux": "^9.2.0",
     "react-router-dom": "^6.21.1",
-    "react-scripts": "^5.0.1",
     "react-slick": "^0.30.3",
     "slick-carousel": "^1.8.1"
   },
