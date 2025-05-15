@@ -120,5 +120,6 @@ If you find this project helpful, please give a star ⭐ to the repository.
 Contact
 
 
-Ajeetkumar - 
-Project Link: 
+Ajeetkumar - ajeetkumar.dev735@gmail.com
+Project Link: [![Visit Live Project](https://img.shields.io/badge/Live-Demo-blue)](https://job-portal-hs45-ajeeet-kumars-projects-66916d2a.vercel.app/)
+
