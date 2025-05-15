@@ -1,11 +1,10 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react-swc'
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
 
-// https://vitejs.dev/config/
 export default defineConfig({
   server: {
-    open: true, // opens browser
+    open: true,
   },
   plugins: [react()],
   base: process.env.NODE_ENV === 'production' ? '/job-portal/' : '/',
-})
+});
