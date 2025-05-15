@@ -117,9 +117,10 @@ Open a Pull Request (We will review and merge within 24 hours!)
 
 If you find this project helpful, please give a star ⭐ to the repository.
 
-Contact
-
+Contact: 7903395232
 
 Ajeetkumar - ajeetkumar.dev735@gmail.com
-Project Link: [![Visit Live Project](https://img.shields.io/badge/Live-Demo-blue)](https://job-portal-hs45-ajeeet-kumars-projects-66916d2a.vercel.app/)
+Project Link: ## Project Link
+[Visit Live Project](https://job-portal-hs45.vercel.app/login)
+
 
