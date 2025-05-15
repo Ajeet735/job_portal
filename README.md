@@ -120,7 +120,7 @@ If you find this project helpful, please give a star ⭐ to the repository.
 Contact: 7903395232
 
 Ajeetkumar - ajeetkumar.dev735@gmail.com
-Project Link: ## Project Link
-[Visit Live Project](https://job-portal-hs45.vercel.app/login)
 
+## Project Link
+[Visit Live Project](https://job-portal-hs45.vercel.app/login)
 
