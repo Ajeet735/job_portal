@@ -1,24 +1,19 @@
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 
-dotenv.config(); // Load .env file
+dotenv.config();
 
 const dbConnection = async () => {
   try {
     // Replace <PASSWORD> dynamically
-    const DB = process.env.DB_URL.replace('<PASSWORD>', process.env.DATABASE_PASSWORD);
+    const DB = process.env.DB_URL.replace('<PASSWORD>', encodeURIComponent(process.env.DATABASE_PASSWORD));
 
-    // Connect to MongoDB
-    await mongoose.connect(DB, {
-      dbName: "job_portal",
-      useNewUrlParser: true, // Ensure proper parsing
-      useUnifiedTopology: true // For stable connection
-    });
+    await mongoose.connect(DB); // No options needed in Mongoose 6+
 
     console.log("✅ MongoDB connected successfully");
   } catch (error) {
     console.error("❌ MongoDB connection failed:", error.message);
-    process.exit(1); // Exit on failure
+    process.exit(1);
   }
 };
 

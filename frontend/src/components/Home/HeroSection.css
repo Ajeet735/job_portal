@@ -2,7 +2,7 @@
 .heroSection {
     display: flex;
     flex-direction: column;
-    /* padding: 75px 0 50px 0; */
+     padding: 75px 0 50px 0; 
   }
   .heroSection .container {
     min-width: 1500px;
@@ -11,8 +11,8 @@
   }
   .heroSection .container {
     display: flex;
-    height: 450px;
-    margin-bottom: 1.75rem;
+    height: 320px;
+    margin-bottom: 1rem;
   }
   .heroSection .container .title,
   .heroSection .container .image {
